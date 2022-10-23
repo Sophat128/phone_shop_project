@@ -1,12 +1,14 @@
-package com.sophat.java.code.phone.shop.service;
+package com.sophat.java.code.phone.shop.serviceImp;
 
 import com.sophat.java.code.phone.shop.model.Brand;
 import com.sophat.java.code.phone.shop.repository.BrandRepository;
+import com.sophat.java.code.phone.shop.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -30,6 +32,11 @@ public class BrandServiceImp implements BrandService {
         } else {
             throw new HttpClientErrorException(HttpStatus.NOT_FOUND, String.format("Not found for id %d", id));
         }
+    }
+
+    @Override
+    public List<Brand> getListOfBrands() {
+        return brandRepository.findAll();
     }
 
     @Override

@@ -2,10 +2,7 @@ package com.sophat.java.code.phone.shop.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @Setter
@@ -14,7 +11,11 @@ import javax.persistence.Id;
 @AllArgsConstructor
 public class Brand {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+
+//    To separate the sequence
+    @GeneratedValue(generator = "brand_seq_generator")
+    @SequenceGenerator(name = "brand_seq_generator", initialValue = 1, sequenceName = "brand_seq")
     private Integer id;
     private String name;
 }

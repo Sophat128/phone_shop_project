@@ -1,4 +1,4 @@
-package com.sophat.java.code.phone.shop.service;
+package com.sophat.java.code.phone.shop.mapper;
 
 import com.sophat.java.code.phone.shop.dto.BrandDTO;
 import com.sophat.java.code.phone.shop.model.Brand;
@@ -8,6 +8,12 @@ public class EntityMapper {
         Brand brand = new Brand();
         brand.setName(dto.getName());
         return brand;
+    }
+
+    public static BrandDTO brandDTO(Brand brand){
+        BrandDTO brandDTO = new BrandDTO();
+        brandDTO.setName(brand.getName());
+        return brandDTO;
     }
 
 }
